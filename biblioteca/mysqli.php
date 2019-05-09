@@ -5,3 +5,5 @@ function conn() {
     if (!$cnx) die('Deu errado a conexao!');
     return $cnx;
 }
+
+?>

@@ -1,0 +1,1 @@
+<h2>Aqui ficam os clientes da Loja. Como podem ver, não há ninguém nessa merda</h2>

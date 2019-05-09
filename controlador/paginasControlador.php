@@ -14,3 +14,5 @@ function sobre(){
 function mapa(){
 	exibir("paginas/mapa");
 }
+
+?>
