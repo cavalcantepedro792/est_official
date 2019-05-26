@@ -15,7 +15,7 @@
 	</div>
 	<div class="shop-car">
 		<a href=".">
-			<img src="./publico/img/header/shopping-cart.png" class="shopping-cart-image">
+			<img src="publico/img/header/shopping-cart.png" class="shopping-cart-image">
 		</a>
 	</div>
 </div>
