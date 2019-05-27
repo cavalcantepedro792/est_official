@@ -8,7 +8,7 @@ function adicionarCliente($email,$senha,$cpf,$nome,$sobrenome,$data_de_nasciment
     if(!$resultado){ 
         die ('Erro ao cadastrar cliente' . mysqli_error($cnx));
     }
-
+    return "Cliente cadastrado com sucesso!";
 }
 
 ?>

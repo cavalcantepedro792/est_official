@@ -27,21 +27,42 @@ function adicionar(){
        $sexo = $_POST["sexo"];
        $telefone = $_POST["telefone"];
               
-       echo validar_email($email);
+       /*echo validar_email($email);
        echo validar_elementos_obrigatorios($senha);
        echo validar_elementos_especificos($cpf);
        echo validar_elementos_obrigatorios($nome);  
        echo validar_elementos_obrigatorios($sobrenome);
        echo validar_elementos_especificos($data_de_nascimento);
-       echo validar_elementos_especificos($telefone);
+       echo validar_elementos_especificos($telefone);*/
        
-       $msg = adicionarCliente($email,$senha,$cpf,$nome,$sobrenome,$data_de_nascimento,$sexo,$telefone);
-       echo $msg;
+       /*
+       lembrar de verificar o retorno da função booleana e armazenar o erro no vetor
+       if(validar_email($email) == false){
+           $errors[] = "Adicione um email válido";
+       }
+       */
+       
+       if
+       (
+          (validar_email($email))&&
+          (validar_elementos_obrigatorios($senha))&&
+          (validar_elementos_especificos($cpf))&&
+          (validar_elementos_obrigatorios($nome))&&
+          (validar_elementos_obrigatorios($sobrenome))&&
+          (validar_elementos_especificos($data_de_nascimento))&&
+          (validar_elementos_especificos($telefone))
+       )
+       {
+           $msg = adicionarCliente($email,$senha,$cpf,$nome,$sobrenome,$data_de_nascimento,$sexo,$telefone);
+           echo $msg;
+       }else{
+           echo "Refaça o cadastro";
+           exibir("cliente/formulario");
+       }
        
    } else{
-       //não há dados submetidos;
+       exibir("cliente/formulario");
    }
-   exibir("cliente/formulario");
 }
 
 function contato(){

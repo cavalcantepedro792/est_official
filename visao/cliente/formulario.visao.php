@@ -36,7 +36,7 @@
 	<label class="label-user">Sexo<span>*</span></label>
 	<div class="sex-user">
 		<div class="gender-user">
-			<input type="radio" name="sexo" value="M" id="man">
+			<input type="radio" name="sexo" value="M" id="man"  checked="checked">
 			<label class="label-gender-user" for="man">Masculino</label>
 		</div>
 		<div class="gender-user">
