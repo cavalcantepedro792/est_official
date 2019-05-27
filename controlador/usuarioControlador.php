@@ -3,8 +3,9 @@
 require_once "modelo/usuarioModelo.php";
 
 function index() {
-    $dados["usuarios"] = pegarTodosUsuarios();
-    exibir("usuario/listar", $dados);
+    /*$dados["usuarios"] = pegarTodosUsuarios();
+    exibir("usuario/listar", $dados);*/
+    exibir("usuario/index");
 }
 
 function adicionar() {

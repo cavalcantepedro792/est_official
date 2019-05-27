@@ -2,10 +2,7 @@
 
 	# VALIDAR USUARIO #
 
-	function validarUsuario($nome){
-		if () {
-		}
-	}
+	function validarUsuario($nome){	}
 
 	function validar_elementos_obrigatorios($nome) {
 		if (strlen(trim($nome))==0) {

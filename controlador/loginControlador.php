@@ -5,7 +5,7 @@ require_once "modelo/usuarioModelo.php";
 /** anon */
 function index() {
     if (ehPost()) {
-        extract($_POST);
+    /*    extract($_POST);
         $usuario = pegarUsuarioPorEmailSenha($email, $senha);
         
         if (acessoLogar($usuario)) {
@@ -14,6 +14,8 @@ function index() {
         } else {
             alert("usuario ou senha invalidos!");
         }
+    */
+        echo "legal";
     }
     exibir("login/index");
 }

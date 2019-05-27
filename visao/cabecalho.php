@@ -11,7 +11,7 @@
 		</form>
 	</div>
 	<div class="log-e-cad">
-		<a href="./cliente/adicionarCliente"><h3>Login ou<br> Cadastro</h3></a>
+		<a href="./cliente/adicionar"><h3>Login ou<br> Cadastro</h3></a>
 	</div>
 	<div class="shop-car">
 		<a href=".">
