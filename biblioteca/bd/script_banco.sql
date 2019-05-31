@@ -1,30 +1,86 @@
--- DROP DATABASE mvcd;
--- CREATE DATABASE mvcd;
+--Criação e Definição da Base de Dados
+DROP DATABASE IF EXISTS est_official;
+CREATE DATABASE est_official;
+USE est_official;
 
--- USE mvcd;
+--Criação das Tabelas
+CREATE TABLE IF NOT EXISTS usuario(
+	idUsuario INT(11) NOT NULL AUTO_INCREMENT,
+	NomeUsuario VARCHAR(20) NOT NULL,
+	SobrenomeUsuario VARCHAR(20) NOT NULL,
+	Email VARCHAR(60) NOT NULL,
+	Senha VARCHAR(12) NOT NULL,
+	Cpf VARCHAR(11) NOT NULL,
+	Nascimento VARCHAR(10) NOT NULL,
+	Sexo VARCHAR(1) NOT NULL,
+	tipoUsuario VARCHAR(5) NOT NULL,
+	PRIMARY KEY(idUsuario)
+);
+CREATE TABLE IF NOT EXISTS produto(
+	idProduto INT(11) NOT NULL AUTO_INCREMENT,
+	Preco DOUBLE NOT NULL,
+	NomeProduto VARCHAR(30) NOT NULL,
+	Descricao VARCHAR(60) NOT NULL,
+	Tamanho VARCHAR(60) NOT NULL,
+	Imagem VARCHAR(60) NOT NULL,
+	Sexo VARCHAR(1) NOT NULL,
+	Categoria VARCHAR(20) NOT NULL,
+	Estoque_Min INT(5) NOT NULL,
+	Estoque_Max INT(5) NOT NULL,
+	PRIMARY KEY(idProduto)
+);
+CREATE TABLE IF NOT EXISTS cupom(
+	idCupom INT(8) NOT NULL,
+	NomeCupom VARCHAR(20) NOT NULL,
+	Desconto INT(8) NOT NULL,
+	PRIMARY KEY(idCupom)
+);
+CREATE TABLE IF NOT EXISTS log_produto(
+	ID_Log INT(11) NOT NULL,
+	Tabela VARCHAR(45) NOT NULL,
+	Usuario VARCHAR(45) NOT NULL,
+	Data_Hora DATETIME NOT NULL,
+	Acao VARCHAR(45) NOT NULL,
+	Dados VARCHAR(1000) NOT NULL,
+	PRIMARY KEY(ID_Log)
+);
+CREATE TABLE IF NOT EXISTS endereco(
+	idEndereco INT(11) NOT NULL,
+	idUsuario INT (11) NOT NULL,
+	Logradouro VARCHAR(20) NOT NULL,
+	Complemento VARCHAR(20),
+	Bairro VARCHAR(30) NOT NULL,
+	Cidade VARCHAR(30) NOT NULL,
+	CEP VARCHAR(8) NOT NULL,
+	PRIMARY KEY(idEndereco, idUsuario),
+	FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) ON UPDATE CASCADE ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS  pedido (
+	idPedido INT(11) NOT NULL,
+	idUsuario INT(11) NOT NULL,
+	idEndereco INT(11) NOT NULL,
+	dataCompra DATE NOT NULL,
+	PRIMARY KEY(idUsuario, idEndereco),
+	FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(idEndereco) REFERENCES endereco(idEndereco) ON UPDATE CASCADE ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS pedido_produto(
+	idProduto INT(11) NOT NULL,
+	idPedido INT(11) NOT NULL,
+	Quantidade INT(11) NOT NULL,
+	PRIMARY KEY(idProduto, idPedido),
+	FOREIGN KEY(idProduto) REFERENCES produto(idProduto) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(idPedido) REFERENCES pedido(idPedido) ON UPDATE CASCADE ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS estoque(
+	idEstoque INT(11) NOT NULL,
+	idProduto INT(11) NOT NULL,
+	Quantidade INT(11) NOT NULL,
+	PRIMARY KEY(idEstoque),
+	FOREIGN KEY(idProduto) REFERENCES produto(idProduto) ON UPDATE CASCADE ON DELETE CASCADE
+);
 
--- CREATE TABLE IF NOT EXISTS 'usuario' (
--- 	id INT(11) NOT NULL AUTO_INCREMENT,
--- 	nome VARCHAR(100) NOT NULL,
--- 	senha VARCHAR(100) NOT NULL,
--- 	email VARCHAR(100) NOT NULL,
--- 	papel VARCHAR(100) NOT NULL DEFAULT 'usuario',
--- 	PRIMARY KEY (id)
--- );
-
-create table cliente(
-	email varchar(50) NOT NULL,
-	senha varchar(20) NOT NULL,
-	CPF varchar(14) NOT NULL,
-	Nome varchar(30) NOT NULL,
-	Sobrenome varchar(60) NOT NULL,
-	dataNasc DATE NOT NULL,
-	sexo varchar(9) NOT NULL,
-	telefone varchar(20) NOT NULL,
-	primary key(CPF)
- );
-
-create table produto(
+/*create table produto(
 	codProduto int(11) NOT NULL,
 	categoria varchar(20) NOT NULL,
 	nome varchar(30) NOT NULL,
@@ -41,7 +97,6 @@ create table produto(
 	primary key(codProduto),
 	foreign key(categoria) REFERENCES categoria(idCategoria) ON UPDATE CASCADE ON DELETE CASCADE
 );
-
 create table categoria(
 	idCategoria varchar(15) NOT NULL,
 	idProduto int(11) NOT NULL,
@@ -49,10 +104,10 @@ create table categoria(
 	foreign key(idProduto) REFERENCES produto(codProduto) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+ENGINE = InnoDB
+AUTO_INCREMENT = 24
+DEFAULT CHARACTER SET = utf8
 
---ENGINE = InnoDB
---AUTO_INCREMENT = 24
---DEFAULT CHARACTER SET = utf8
-
---INSERT INTO 'mvcd'.'usuario' ('nome', 'senha', 'email', 'papel') VALUES ('admin', '123', 'admin@admin', 'admin');
---INSERT INTO 'mvcd'.'usuario' ('nome', 'senha', 'email', 'papel') VALUES ('usuario', '123', 'usuario@usuario', 'usuario');
+INSERT INTO  mvcd . usuario  ( nome ,  senha ,  email ,  papel ) VALUES ( admin ,  123 ,  admin@admin ,  admin );
+INSERT INTO  mvcd . usuario  ( nome ,  senha ,  email ,  papel ) VALUES ( usuario ,  123 ,  usuario@usuario ,  usuario );
+*/
