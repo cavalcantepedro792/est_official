@@ -11,7 +11,7 @@
 				http://tiagomatos.com/blog/dica-sobre-a-variavel-global-server-do-php
 				https://www.php.net/manual/pt_BR/reserved.variables.server.php
 			*/
-			if ($_SERVER['PHP_SELF']!='/est_official/index.php/cliente/adicionarCliente') {
+			if (($_SERVER['PHP_SELF']!='/est_official/index.php/cliente/adicionar')&&($_SERVER['PHP_SELF']!='/est_official/index.php/login/')) {
 				require('cabecalho.php');
 			}else{
 				require('cabecalho_login.php');
