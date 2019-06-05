@@ -17,11 +17,11 @@
 		<img src="./publico/img/user/user.png" style="width: auto; height: 100%;">
 		<h1>Login do cliente</h1>
 	</div>
-	<form action="" method="POST">
-		<label class="label-user" for="email">E-mail:<span>*</span></label><br>
-		<input class="input-user" type="" name="" id="email"><br>
-		<label class="label-user" for="senha">Senha:<span>*</span></label><br>
-		<input class="input-user" type="" name="" id="senha"><br>
+	<form action="" method="POST" class="form-login">
+		<label class="login-label" for="email"><h3>E-mail:<span>*</span></h3></label><br>
+		<input class="login-input" type="text" name="username" id="email"><br>
+		<label class="login-label" for="senha"><h3>Senha:<span>*</span></h3></label><br>
+		<input class="login-input" type="password" name="userpassword" id="senha"><br>
 		<button type="submit">Entrar</button>
 	</form>
 	<p>Não tem cadastro? <a href="./cliente/adicionar"  style="color: #000; text-decoration: underline;">Cadastre-se</a></p>
