@@ -19,10 +19,10 @@
 	</div>
 	<form action="" method="POST" class="form-login">
 		<label class="login-label" for="email"><h3>E-mail:<span>*</span></h3></label><br>
-		<input class="login-input" type="text" name="username" id="email"><br>
+		<input class="login-input" type="text" name="username" id="email" placeholder="E-mail"><br>
 		<label class="login-label" for="senha"><h3>Senha:<span>*</span></h3></label><br>
-		<input class="login-input" type="password" name="userpassword" id="senha"><br>
-		<button type="submit">Entrar</button>
+		<input class="login-input" type="password" name="userpassword" id="senha" placeholder="Senha"><br>
+		<button type="submit" class="login-button">Entrar</button>
 	</form>
-	<p>Não tem cadastro? <a href="./cliente/adicionar"  style="color: #000; text-decoration: underline;">Cadastre-se</a></p>
+	<p style="font-size: 18px;">Não tem cadastro? <a href="./cliente/adicionar"  style="color: #000; text-decoration: underline;">Cadastre-se</a></p>
 </div>
