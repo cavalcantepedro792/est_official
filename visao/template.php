@@ -3,6 +3,7 @@
 		<title>Electronic's ST</title>
 		<meta charset="utf-8">
 		<base href="<?= URL_BASE ?>">
+		<!--<link rel="shortcut icon" type="image/x-png" href=" caminho do ícone da loja ">-->
 		<link rel="stylesheet" href="./publico/css/app.css">
 	</head>
 	<body class="container">
